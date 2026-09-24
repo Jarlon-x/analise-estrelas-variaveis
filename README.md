@@ -12,3 +12,6 @@ Certifique-se de ter o Python instalado e execute o script principal:
 ```bash
 python codigo_estrelas_v2.py
 ```
+
+## Guia sobre o código de Análise de Estrelas Variáveis
+https://colab.research.google.com/drive/1h2RK7LjTbZ7QxqUaedqniC_OUnwXE-Jr?usp=sharing
