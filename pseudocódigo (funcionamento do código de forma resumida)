@@ -143,3 +143,5 @@ INÍCIO
     - Salvar os gráficos.
 
 FIM
+A lógica principal pode ser entendida assim:
+Dados da estrela → limpar → procurar repetição → testar vários períodos → escolher o melhor → verificar se é confiável → dobrar a curva → descrever a forma → gerar gráficos e resultados.
