@@ -1,147 +1,19 @@
 INÍCIO
-
-1. DEFINIR O QUE O PROGRAMA VAI FAZER
-   - Informar qual arquivo contém os dados da estrela.
-   - Definir qual filtro de luz será analisado.
-   - Definir os limites de período que serão procurados.
-   - Definir quantos termos de Fourier serão usados.
-   - Definir outras opções necessárias para a análise.
-
-2. ABRIR OS DADOS DA ESTRELA
-   - Abrir o arquivo baixado da AAVSO.
-   - Verificar se o arquivo existe.
-   - Encontrar as informações de:
-       • tempo da observação;
-       • brilho da estrela;
-       • erro da medição;
-       • filtro utilizado;
-       • observador.
-
-3. SEPARAR APENAS OS DADOS QUE INTERESSAM
-   - Escolher o filtro desejado, por exemplo, V.
-   - Escolher o observador, quando essa opção estiver sendo usada.
-   - Transformar os valores de tempo, brilho e erro em números.
-   - Retirar observações que estejam vazias ou inválidas.
-   - Retirar observações com erros que não façam sentido.
-   - Colocar as observações em ordem de tempo.
-
-4. RETIRAR OBSERVAÇÕES MUITO FORA DO PADRÃO
-   - Calcular um valor central para o brilho da estrela.
-   - Verificar quais observações estão muito distantes desse valor.
-   - Retirar essas observações quando o usuário tiver ativado essa opção.
-
-5. PROCURAR O PERÍODO DA ESTRELA
-   - Usar o método Lomb-Scargle.
-   - Esse método procura por repetições nos dados.
-   - Testar várias frequências.
-   - Para cada frequência, calcular o quanto ela combina com as observações.
-   - Identificar as frequências que parecem mais importantes.
-
-6. ANALISAR POSSÍVEIS PROBLEMAS
-   - Verificar se alguns picos encontrados podem ser apenas
-     efeitos causados pelos horários em que as observações foram feitas.
-   - Isso é feito analisando a chamada "janela espectral".
-
-7. CRIAR VÁRIOS PERÍODOS POSSÍVEIS
-   - Pegar os principais picos encontrados.
-   - Transformar as frequências em períodos.
-   - Também testar possíveis sub-harmônicos, como:
-       • metade da frequência;
-       • um terço da frequência.
-   - Assim, o programa não depende simplesmente do maior pico.
-
-8. TESTAR CADA PERÍODO POSSÍVEL
-   Para cada candidato:
-       - Ajustar uma curva de Fourier aos dados.
-       - Testar diferentes quantidades de componentes da curva.
-       - Verificar o quanto a curva consegue representar as observações.
-       - Calcular o erro do ajuste.
-       - Calcular o BIC para comparar os modelos.
-
-9. ESCOLHER O MELHOR PERÍODO
-   - Comparar os candidatos.
-   - Preferir o modelo que representa melhor os dados
-     sem ficar desnecessariamente complicado.
-   - Usar o BIC nessa comparação.
-   - Quando os modelos forem praticamente equivalentes,
-     usar a força do pico encontrado pelo Lomb-Scargle
-     como critério adicional.
-
-10. VERIFICAR A RELAÇÃO ENTRE OS PERÍODOS
-    - Verificar se o período escolhido é:
-        • o período principal;
-        • um harmônico;
-        • um sub-harmônico;
-        • um possível alias;
-        • ou apenas outra possibilidade.
-
-11. VERIFICAR A CONFIABILIDADE DO RESULTADO
-    - Calcular a FAP.
-    - A FAP ajuda a verificar se o sinal encontrado
-      pode ter aparecido apenas por acaso.
-
-12. FAZER UM TESTE DE BOOTSTRAP
-    - Criar várias versões simuladas dos dados.
-    - Manter os mesmos momentos das observações.
-    - Alterar os valores de brilho de acordo com os erros
-      ou usando os resíduos do modelo.
-    - Procurar novamente o período em cada simulação.
-    - Verificar se o mesmo período aparece repetidamente.
-
-13. DOBRAR A CURVA DE LUZ
-    - Usar o período escolhido.
-    - Transformar cada momento da observação em uma "fase"
-      dentro de um único ciclo.
-    - Colocar todas as observações de diferentes ciclos
-      nesse mesmo ciclo.
-    - Assim, fica possível enxergar melhor a repetição
-      do brilho da estrela.
-
-14. AGRUPAR OS PONTOS
-    - Dividir o ciclo em pequenos intervalos.
-    - Colocar as observações de cada intervalo juntas.
-    - Calcular o brilho médio de cada grupo.
-    - Calcular também a dispersão e o erro.
-
-15. AJUSTAR UMA CURVA DE FOURIER
-    - Usar os pontos agrupados e as observações originais.
-    - Criar uma curva matemática que represente
-      o comportamento da estrela durante um ciclo.
-    - Usar vários componentes para representar
-      detalhes diferentes da forma da curva.
-
-16. CALCULAR AS CARACTERÍSTICAS DA CURVA
-    - Calcular a amplitude da variação do brilho.
-    - Calcular A1 e A2.
-    - Calcular R21.
-    - Calcular phi21.
-    - Esses valores ajudam a descrever o formato
-      da curva de luz.
-
-17. MOSTRAR OS RESULTADOS
-    - Mostrar o período encontrado.
-    - Mostrar a frequência.
-    - Mostrar o modelo utilizado.
-    - Mostrar os erros do ajuste.
-    - Mostrar a FAP.
-    - Mostrar os parâmetros de Fourier.
-    - Mostrar os períodos candidatos.
-    - Mostrar informações do bootstrap.
-
-18. CRIAR GRÁFICOS
-    - Gráfico dos dados originais.
-    - Gráfico mostrando as frequências testadas.
-    - Gráfico da janela espectral.
-    - Gráfico da curva de luz dobrada pelo período.
-    - Mostrar também a curva de Fourier sobre os dados.
-
-19. SALVAR OS RESULTADOS
-    - Salvar tabelas com os candidatos.
-    - Salvar informações da janela espectral.
-    - Salvar resultados do bootstrap.
-    - Salvar um resumo em arquivo.
-    - Salvar os gráficos.
-
+1. Ler o arquivo e conferir as colunas e os parâmetros.
+2. Selecionar a banda e o observador escolhidos.
+3. Manter medidas numéricas com incerteza positiva e ordenar por data.
+4. Aplicar o corte por magnitude, caso essa opção esteja ativada.
+5. Testar os períodos no intervalo definido com Lomb-Scargle.
+6. Identificar picos distintos e examinar os intervalos de observação.
+7. Para cada candidato e suas alternativas:
+Calcular curvas aproximadas com diferentes graus de detalhe.
+Comparar o ajuste às medidas e a complexidade das curvas.
+8. Selecionar o candidato conforme o critério do programa.
+9. Repetir a busca em novas séries, se a verificação estiver ativada.
+10. Organizar medidas por fase e calcular médias para visualização.
+11. Gerar gráficos, lista de candidatos e resumo dos resultados.
+12. Salvar as saídas na pasta indicada.
 FIM
+
 A lógica principal pode ser entendida assim:
 Dados da estrela → limpar → procurar repetição → testar vários períodos → escolher o melhor → verificar se é confiável → dobrar a curva → descrever a forma → gerar gráficos e resultados.
