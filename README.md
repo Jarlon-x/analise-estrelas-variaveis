@@ -31,4 +31,4 @@ python codigo_estrelas_v2.py observacoes.txt
 ```
 
 ## Guia sobre o código de Análise de Estrelas Variáveis
-https://colab.research.google.com/drive/1h2RK7LjTbZ7QxqUaedqniC_OUnwXE-Jr?usp=sharing
+https://colab.research.google.com/drive/1s6e6OhBPr8EuiOwwnkn10uwNvqJMVsN8
